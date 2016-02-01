@@ -15,77 +15,114 @@ class PostViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionVie
     var expandItemImg: Bool = false
     
     func initContent() {
+        
+        var infoLabelExtendedH:Bool = false
+        
+        /*----------------------setting ui parameters-----------------*/
+        /*multi control with same parameters*/
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let sidePadding: CGFloat = 20.0 /*side padding: avatar button start x,
+                                                        info label start x,
+                                                        collection item view start x,
+                                                        expand_collapse button start x*/
+        /*avatar button parameters*/
+        let avatarBtnY: CGFloat = 0.0   /*start y*/
+        let avatarBtnW: CGFloat = 40.0  /*width*/
+        
+        /*user name label parameters*/
+        let userNameLabelY: CGFloat = 0.0    /*start y*/
+        let userNameLabelX: CGFloat = sidePadding+avatarBtnW+5.0 /*start x, gap: 5*/
+        let userNameLabelH: CGFloat = 20.0   /*height*/
+        let userNameLabelW: CGFloat = screenSize.width-sidePadding-userNameLabelX /*width*/
+        
+        /*post date&time label parameters*/
+        let postLabelY: CGFloat = userNameLabelY+userNameLabelH+5.0 /*start y, gap: 5*/
+        let postLabelX: CGFloat = userNameLabelX    /*start x*/
+        let postLabelH: CGFloat = 15.0             /*height*/
+        let postLabelW: CGFloat = userNameLabelW   /*width*/
+        
+        /*post information label (multiple line) parameters*/
+        let infoLabelY: CGFloat = avatarBtnW+3.0 /*start y, gap: 3*/
+        let infoLabelX: CGFloat = sidePadding    /*start x*/
+        var infoLabelH: CGFloat = 60.0           /*height (default)*/
+        let infoLabelW: CGFloat = screenSize.width-2*sidePadding /*width*/
+        
+        /*collection item view parameters*/
+        var itemViewItemCount:CGFloat = CGFloat(itemCount!/3)
+        if itemCount!%3 != 0 {
+            itemViewItemCount += 1
+        }
+        let itemViewInnerM: CGFloat = 5.0   /*inner margin*/
+        let itemViewSideM: CGFloat = 5.0    /*side margin*/
+        let itemViewTopM: CGFloat = 5.0     /*top margin*/
+        let itemViewBottomM: CGFloat = 5.0  /*bottom margin*/
+        var itemViewY: CGFloat = infoLabelY+infoLabelH+5.0 /*start y, gap: 5*/
+        let itemViewX: CGFloat = sidePadding               /*start x*/
+        let itemViewW: CGFloat = screenSize.width-sidePadding*2  /*width*/
+        let itemViewSingleW: CGFloat = (itemViewW-itemViewInnerM*2-itemViewSideM*2)/3 /*each item width*/
+        let itemViewH: CGFloat = itemViewItemCount*itemViewSingleW+(itemViewItemCount-1)*itemViewInnerM
+        
+        /*expand_collapse button parameters*/
+        let expandCollBtnY: CGFloat = itemViewY+itemViewH+2.0 /*start y, gap: 2*/
+        let expandCollBtnX: CGFloat = sidePadding    /*start x*/
+        let expandCollBtnW: CGFloat = itemViewW      /*width*/
+        let expandCollBtnH: CGFloat = 15.0           /*height*/
+        
+        
+        /*----------------------setting ui control--------------------*/
         /*avatar button*/
-
         let avatarBtn = UIButton(type: UIButtonType.System) as UIButton
-        avatarBtn.frame = CGRectMake(20, 0, 40, 40)
+        avatarBtn.frame = CGRectMake(sidePadding, avatarBtnY, avatarBtnW, avatarBtnW)
         avatarBtn.setImage(UIImage(named: "avatar"), forState: .Normal)
-      
-//        viewItemBtn.addTarget(self, action: "viewButtonAction:", forControlEvents: .TouchUpInside)
         self.contentView.addSubview(avatarBtn)
         
-        /*user_name label*/
+        /*user name label*/
+        let userNameLabel = UILabel(frame: CGRectMake(userNameLabelX, userNameLabelY, userNameLabelW, userNameLabelH))
+        userNameLabel.textAlignment = NSTextAlignment.Left
+        userNameLabel.font = UIFont.systemFontOfSize(18.0);
+        userNameLabel.text = "Moving sale"
+        self.contentView.addSubview(userNameLabel)
         
-        let usrNamelabel = UILabel(frame: CGRectMake(65, 0, 200, 20))
-        usrNamelabel.textAlignment = NSTextAlignment.Left
-        usrNamelabel.font = UIFont.systemFontOfSize(18.0);
-        usrNamelabel.text = "Moving sale"
-        self.contentView.addSubview(usrNamelabel)
+        /*post date&time label*/
+        let postLabel = UILabel(frame: CGRectMake(postLabelX, postLabelY, postLabelW, postLabelH))
+        postLabel.textAlignment = NSTextAlignment.Left
+        postLabel.font = UIFont.systemFontOfSize(12.0);
+        postLabel.text = "posted: 12/17/1990 16:21"
+        self.contentView.addSubview(postLabel)
         
-        /*post data&time label*/
-        
-        let postlabel = UILabel(frame: CGRectMake(65, 25, 200, 15))
-        postlabel.textAlignment = NSTextAlignment.Left
-        postlabel.font = UIFont.systemFontOfSize(12.0);
-        postlabel.text = "posted: 12/17/1990 16:21"
-        self.contentView.addSubview(postlabel)
-        
-        /*post information multiple line label*/
-        
-        let infoLabel:UILabel = UILabel(frame: CGRectMake(20 ,43, 300, 20));
+        /*post information label*/
+        let infoLabel:UILabel = UILabel(frame: CGRectMake(infoLabelX, infoLabelY, infoLabelW, infoLabelH));
         infoLabel.textAlignment = NSTextAlignment.Left;
         infoLabel.numberOfLines = 0;
         infoLabel.font = UIFont.systemFontOfSize(14.0);
-//        infoLabel.text = "First label";
         infoLabel.text = "First label\nsecond line\njdjdjd\nksksk";
         infoLabel.sizeToFit()
-        print(infoLabel.frame.height)
-        infoLabel.frame = CGRectMake(20 ,43, 300, 20)
+        if infoLabelH < infoLabel.frame.height {
+            infoLabelExtendedH = true
+        } else {
+            infoLabelH = infoLabel.frame.height
+        }
+        infoLabel.frame = CGRectMake(infoLabelX, infoLabelY, infoLabelW, infoLabelH)
         self.contentView.addSubview(infoLabel);
         
-        /*collection view*/
-        let topPadding:CGFloat = 50
-        let sidePadding: CGFloat = 20.0
-        let innerMargin:CGFloat = 5.0
-        let sideMargin: CGFloat = 5.0
-        let topMargin:CGFloat = 5.0
-        let bottomMargin:CGFloat = 5.0
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let width: CGFloat = screenSize.width-sidePadding*2
-        let itemWidth: CGFloat = (width - innerMargin*2-sideMargin*2)/3 /*margin*4*/
-        
-        var n:CGFloat = CGFloat(itemCount!/3)
-        if itemCount!%3 != 0 {
-            n += 1
-        }
-        let height = n*itemWidth+(n-1)*innerMargin+10
+        /*collection item view*/
+        itemViewY = infoLabelY+infoLabelH+5.0 /*height (default)*/
 
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: topMargin, left: bottomMargin, bottom: 0, right: 5)
-        layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
+        layout.sectionInset = UIEdgeInsets(top: itemViewTopM, left: itemViewSideM, bottom: itemViewBottomM, right: itemViewSideM)
+        layout.itemSize = CGSize(width: itemViewSingleW, height: itemViewSingleW)
+        layout.minimumInteritemSpacing = itemViewInnerM
+        layout.minimumLineSpacing = itemViewInnerM
         
-        layout.minimumInteritemSpacing = innerMargin
-        layout.minimumLineSpacing = innerMargin
+        let frame:CGRect = CGRect(x: itemViewX, y: itemViewY, width: itemViewW, height: itemViewH)
         
-        let frame:CGRect = CGRect(x: sidePadding, y: topPadding, width: width, height: height)
         collectionView.collectionViewLayout = layout
         collectionView.frame = frame
-        
         collectionView.scrollEnabled = false
         
-        /*expand/collapse button*/
+        /*expand_collapse button*/
         let viewItemBtn = UIButton(type: UIButtonType.System) as UIButton
-        viewItemBtn.frame = CGRectMake(sidePadding, topPadding+height+1, width, 15)
+        viewItemBtn.frame = CGRectMake(expandCollBtnX, expandCollBtnY, expandCollBtnW, expandCollBtnH)
         viewItemBtn.backgroundColor = UIColor(red: 226/255.0, green: 226/255.0, blue: 226/255.0, alpha: 1.0)
         viewItemBtn.setTitleColor(UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0), forState: UIControlState.Normal)
         viewItemBtn.addTarget(self, action: "viewButtonAction:", forControlEvents: .TouchUpInside)

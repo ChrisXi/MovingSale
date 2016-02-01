@@ -94,7 +94,7 @@ class MainPageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let height = n*itemWidth+(n-1)*margin+2
         
         
-        return height+100
+        return height+200
     }
     
     
