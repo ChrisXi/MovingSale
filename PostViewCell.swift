@@ -10,12 +10,41 @@ import UIKit
 
 class PostViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    @IBOutlet weak var testBtn: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     var itemCount:Int?
     var expandItemImg: Bool = false
+    var initedContent: Bool?
+    
+    @IBOutlet weak var testlabel: UILabel!
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        //fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)!
+    }
     
     func initContent() {
         
+        print("aa \(itemCount)")
+        
+        testlabel.frame = CGRect(x: 0, y: 0, width: 80, height: 60)
+        testlabel.text = "aa \(itemCount!)"
+        
+        testBtn.frame = CGRect(x: 0, y: 300, width: 80, height: 60)
+        
+        
+        if initedContent! {
+            return
+        }
+        print("bb \(itemCount)")
+        
+//        initedContent = true
+
         var infoLabelExtendedH:Bool = false
         
         /*----------------------setting ui parameters-----------------*/
@@ -116,11 +145,19 @@ class PostViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionVie
         
         let frame:CGRect = CGRect(x: itemViewX, y: itemViewY, width: itemViewW, height: itemViewH)
         
+//        let collectionView : UICollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
+        
+//        collectionView.dataSource = self
+//        collectionView.delegate = self
+//        collectionView.registerClass(CommodityViewCell.self, forCellWithReuseIdentifier: "commodityCell")
+        
         collectionView.collectionViewLayout = layout
         collectionView.frame = frame
         collectionView.scrollEnabled = false
+//        self.contentView.addSubview(collectionView)
         
         /*expand_collapse button*/
+        
         let viewItemBtn = UIButton(type: UIButtonType.System) as UIButton
         viewItemBtn.frame = CGRectMake(expandCollBtnX, expandCollBtnY, expandCollBtnW, expandCollBtnH)
         viewItemBtn.backgroundColor = UIColor(red: 226/255.0, green: 226/255.0, blue: 226/255.0, alpha: 1.0)
@@ -129,6 +166,10 @@ class PostViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionVie
         viewItemBtn.setTitle("Expand", forState: .Normal)
         viewItemBtn.titleLabel!.font = UIFont(name: "Times New Roman", size: 12)
         self.contentView.addSubview(viewItemBtn)
+        
+//        print("\(itemViewItemCount)"+" \(itemViewH)")
+//        print("\(itemCount)"+"\(expandCollBtnY)")
+        
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -136,12 +177,13 @@ class PostViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionVie
         return itemCount!
     }
     
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("commodityCell", forIndexPath: indexPath) as! CommodityViewCell
         
         cell.image.image = UIImage(named: "chair"+String(indexPath.row+1))
-
+        print(indexPath.row+1)
         return cell
     }
     
@@ -154,6 +196,7 @@ class PostViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionVie
     }*/
     
     func viewButtonAction(sender: UIButton!) {
+        print(itemCount!)
         expandItemImg = !expandItemImg
         if (expandItemImg == true) {
             sender.setTitle("Collpase", forState: .Normal)

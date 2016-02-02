@@ -12,7 +12,9 @@ class MainPageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let itemArray:[Int] = [5,2,8,10]
+//    let itemArray:[Int] = [5,2,8,10,4,10,3]
+    let itemArray:[Int] = [1,2,3,4,5,6,7,8,9,10]
+    var itemInit:[Bool] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +33,17 @@ class MainPageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! PostViewCell
         
+        if indexPath.row+1 <= self.itemInit.count {
+            self.itemInit[indexPath.row] = true
+        } else {
+            self.itemInit.append(false)
+        }
+        
 //        print("a\(itemArray[indexPath.row])")
+        cell.initedContent = itemInit[indexPath.row]
         cell.itemCount = itemArray[indexPath.row]
-//        cell.itemCount = 4
+        
+//        cell.itemCount = 4.
         cell.initContent()
         cell.collectionView.reloadData()
         
@@ -41,28 +51,29 @@ class MainPageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
         return itemArray.count
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        let itemCount = itemArray[indexPath.row]
-        let sidePadding: CGFloat = 20.0
-        let margin:CGFloat = 5.0
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let width: CGFloat = screenSize.width-sidePadding*2
-        let itemWidth: CGFloat = (width - margin*2)/3
-        
-        var n:CGFloat = CGFloat(itemCount/3)
-        if itemCount%3 != 0 {
-            n += 1
-        }
-        let height = n*itemWidth+(n-1)*margin+2
+//        let itemCount = itemArray[indexPath.row]
+//        let sidePadding: CGFloat = 20.0
+//        let margin:CGFloat = 5.0
+//        let screenSize: CGRect = UIScreen.mainScreen().bounds
+//        let width: CGFloat = screenSize.width-sidePadding*2
+//        let itemWidth: CGFloat = (width - margin*2)/3
+//        
+//        var n:CGFloat = CGFloat(itemCount/3)
+//        if itemCount%3 != 0 {
+//            n += 1
+//        }
+//        let height = n*itemWidth+(n-1)*margin+2
+        let height = 200
         
         
         var whiteRoundedCornerView:UIView!
-        whiteRoundedCornerView=UIView(frame: CGRectMake(0,0,self.view.bounds.width,height+20))
+        whiteRoundedCornerView=UIView(frame: CGRectMake(0,0,self.view.bounds.width,300+20))
         whiteRoundedCornerView.backgroundColor=UIColor(red: 236/255.0, green: 236/255.0, blue: 236/255.0, alpha: 1.0)
         whiteRoundedCornerView.layer.masksToBounds=false
         
@@ -73,28 +84,28 @@ class MainPageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 //        whiteRoundedCornerView.layer.cornerRadius=3.0
 //        whiteRoundedCornerView.layer.shadowOffset=CGSizeMake(-1, -1)
 //        whiteRoundedCornerView.layer.shadowOpacity=0.5
-        cell.contentView.addSubview(whiteRoundedCornerView)
-        cell.contentView.sendSubviewToBack(whiteRoundedCornerView)
+//        cell.contentView.addSubview(whiteRoundedCornerView)
+//        cell.contentView.sendSubviewToBack(whiteRoundedCornerView)
 
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        let itemCount = itemArray[indexPath.row]
-        let sidePadding: CGFloat = 20.0
-        let margin:CGFloat = 5.0
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let width: CGFloat = screenSize.width-sidePadding*2
-        let itemWidth: CGFloat = (width - margin*2)/3
+//        let itemCount = itemArray[indexPath.row]
+//        let sidePadding: CGFloat = 20.0
+//        let margin:CGFloat = 5.0
+//        let screenSize: CGRect = UIScreen.mainScreen().bounds
+//        let width: CGFloat = screenSize.width-sidePadding*2
+//        let itemWidth: CGFloat = (width - margin*2)/3
+//        
+//        var n:CGFloat = CGFloat(itemCount/3)
+//        if itemCount%3 != 0 {
+//            n += 1
+//        }
+//        let height = n*itemWidth+(n-1)*margin+2
         
-        var n:CGFloat = CGFloat(itemCount/3)
-        if itemCount%3 != 0 {
-            n += 1
-        }
-        let height = n*itemWidth+(n-1)*margin+2
         
-        
-        return height+200
+        return 400
     }
     
     
