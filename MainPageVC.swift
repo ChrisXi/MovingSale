@@ -42,9 +42,8 @@ class MainPageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 //        print("a\(itemArray[indexPath.row])")
         cell.initedContent = itemInit[indexPath.row]
         cell.itemCount = itemArray[indexPath.row]
-        
 //        cell.itemCount = 4.
-        cell.initContent()
+        cell.initContent2()
         cell.collectionView.reloadData()
         
         return cell
@@ -105,7 +104,7 @@ class MainPageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 //        let height = n*itemWidth+(n-1)*margin+2
         
         
-        return 400
+        return 600
     }
     
     

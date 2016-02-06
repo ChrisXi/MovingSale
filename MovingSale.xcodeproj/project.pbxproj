@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AF224C1A1C65A77E00C66646 /* LabelTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF224C191C65A77E00C66646 /* LabelTestVC.swift */; };
+		AF224C201C65C49D00C66646 /* ItemViewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF224C1F1C65C49D00C66646 /* ItemViewCollectionCell.swift */; };
 		AF380FBD1C571D1400998DCA /* PostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF380FBC1C571D1400998DCA /* PostViewCell.swift */; };
 		AF380FC51C582CDC00998DCA /* CommodityViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF380FC41C582CDC00998DCA /* CommodityViewCell.swift */; };
 		AF380FC91C582E0700998DCA /* MainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF380FC81C582E0700998DCA /* MainPageVC.swift */; };
@@ -42,7 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AF224C191C65A77E00C66646 /* LabelTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelTestVC.swift; sourceTree = "<group>"; };
+		AF224C1F1C65C49D00C66646 /* ItemViewCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemViewCollectionCell.swift; sourceTree = "<group>"; };
 		AF380FBC1C571D1400998DCA /* PostViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostViewCell.swift; path = ../PostViewCell.swift; sourceTree = "<group>"; };
 		AF380FC41C582CDC00998DCA /* CommodityViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommodityViewCell.swift; sourceTree = "<group>"; };
 		AF380FC81C582E0700998DCA /* MainPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainPageVC.swift; path = ../MainPageVC.swift; sourceTree = "<group>"; };
@@ -90,13 +90,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF224C1D1C65C2F100C66646 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				AF794C111C63D3AA004A6B9D /* CollectionVC.swift */,
+				AF380FC81C582E0700998DCA /* MainPageVC.swift */,
+				AFCAEA7B1C55BDB8002B1CB9 /* ViewController.swift */,
+				AF794C131C63D56D004A6B9D /* CollectionViewCell.swift */,
+				AF380FC41C582CDC00998DCA /* CommodityViewCell.swift */,
+				AF380FBC1C571D1400998DCA /* PostViewCell.swift */,
+			);
+			name = Test;
+			sourceTree = "<group>";
+		};
+		AF224C1E1C65C32900C66646 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AFB36DD51C61DBE500F7CCFD /* MainViewVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		AF380FCC1C5E63B400998DCA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AF380FC41C582CDC00998DCA /* CommodityViewCell.swift */,
-				AF380FBC1C571D1400998DCA /* PostViewCell.swift */,
+				AF224C1F1C65C49D00C66646 /* ItemViewCollectionCell.swift */,
 				AFB36DD31C61DADD00F7CCFD /* MainViewTableCell.swift */,
-				AF794C131C63D56D004A6B9D /* CollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -131,14 +150,11 @@
 		AFCAEA781C55BDB8002B1CB9 /* MovingSale */ = {
 			isa = PBXGroup;
 			children = (
+				AF224C1D1C65C2F100C66646 /* Test */,
+				AF224C1E1C65C32900C66646 /* Controller */,
 				AF380FCD1C5E63CD00998DCA /* Model */,
 				AF380FCC1C5E63B400998DCA /* View */,
 				AFCAEA791C55BDB8002B1CB9 /* AppDelegate.swift */,
-				AF794C111C63D3AA004A6B9D /* CollectionVC.swift */,
-				AFB36DD51C61DBE500F7CCFD /* MainViewVC.swift */,
-				AF380FC81C582E0700998DCA /* MainPageVC.swift */,
-				AFCAEA7B1C55BDB8002B1CB9 /* ViewController.swift */,
-				AF224C191C65A77E00C66646 /* LabelTestVC.swift */,
 				AFCAEA7D1C55BDB8002B1CB9 /* Main.storyboard */,
 				AFCAEA801C55BDB8002B1CB9 /* Assets.xcassets */,
 				AFCAEA821C55BDB8002B1CB9 /* LaunchScreen.storyboard */,
@@ -304,7 +320,7 @@
 				AF794C141C63D56D004A6B9D /* CollectionViewCell.swift in Sources */,
 				AF794C121C63D3AA004A6B9D /* CollectionVC.swift in Sources */,
 				AF380FC91C582E0700998DCA /* MainPageVC.swift in Sources */,
-				AF224C1A1C65A77E00C66646 /* LabelTestVC.swift in Sources */,
+				AF224C201C65C49D00C66646 /* ItemViewCollectionCell.swift in Sources */,
 				AFB36DD41C61DADD00F7CCFD /* MainViewTableCell.swift in Sources */,
 				AFCAEA7C1C55BDB8002B1CB9 /* ViewController.swift in Sources */,
 				AF380FC51C582CDC00998DCA /* CommodityViewCell.swift in Sources */,

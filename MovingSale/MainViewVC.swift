@@ -34,7 +34,7 @@ class MainViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 115.0+55.0*CGFloat(indexPath.row)
+        return 600
     }
     
 }
