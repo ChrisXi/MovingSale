@@ -32,12 +32,6 @@ class PostViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionVie
         
         print("aa \(itemCount)")
         
-        testlabel.frame = CGRect(x: 0, y: 0, width: 80, height: 60)
-        testlabel.text = "aa \(itemCount!)"
-        
-        testBtn.frame = CGRect(x: 0, y: 300, width: 80, height: 60)
-        
-        
         if initedContent! {
             return
         }
