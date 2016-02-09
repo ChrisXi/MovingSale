@@ -10,12 +10,13 @@ import UIKit
 
 class MainViewTableCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
     
+    @IBOutlet weak var height: NSLayoutConstraint!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var labelUserName: UILabel!
     @IBOutlet weak var labelPostTime: UILabel!
     @IBOutlet weak var labelPostInfo: UILabel!
     
-    var itemNum:Int = 10
+    var itemNum:Int = 5
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,13 +27,18 @@ class MainViewTableCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         labelPostInfo.font = UIFont(name: "Georgia-Italic", size: 12)
         
 //        labelPostInfo.textAlignment = NSTextAlignment.Left
-        labelPostInfo.adjustsFontSizeToFitWidth = true
+//        labelPostInfo.adjustsFontSizeToFitWidth = true
         labelPostInfo.numberOfLines = 0
-        labelPostInfo.text = "Johnson had season highs with 27 points and 11 assists in Brooklyn's 128-119 victory on Friday night. The Nets set season bests for points and 3-pointers while snapping a five-game losing streak. Dwyane Wade scored 22 points and Chris Bosh added 20 points for the Heat, who have won six of seven. Goran Dragic had 12 points, nine assists and eight rebounds."
+        labelPostInfo.text = "Johnson had season highs with 27 points and 11 assists in Brooklyn's 128-119 victory on Friday night. The Nets set season bests for points and 3-pointers while snapping a five-game losing streak. Dwyane Wade scored 22 points and Chris Bosh added 20 points for the Heat, who have won six of seven. Goran Dragic had 12 points, nine assists and eight rebounds.Johnson had season highs with 27 points and 11 assists in Brooklyn's 128-119 victory on Friday night. The Nets set season bests for points and 3-pointers while snapping a five-game losing streak. Dwyane Wade scored 22 points and Chris Bosh added 20 points for the Heat, who have won six of seven. Goran Dragic had 12 points, nine assists and eight rebounds."
         let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
         collectionView.showsHorizontalScrollIndicator = false
+
+        height = NSLayoutConstraint(item: collectionView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute , multiplier: 1, constant: 200)
+        collectionView.addConstraint(height)
         
+        let height2: NSLayoutConstraint = NSLayoutConstraint(item: labelPostInfo, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute , multiplier: 1, constant: 30)
+        labelPostInfo.addConstraint(height2)
         print(labelPostInfo.frame.width)
 //                print(collectionView.frame.size.width)
     }
@@ -46,9 +52,17 @@ class MainViewTableCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ItemCell", forIndexPath: indexPath) as! ItemViewCollectionCell
         
-        let x:Int = (indexPath.row%9)/3
-        let y:Int = (indexPath.row%9)%3
+//        height = NSLayoutConstraint(item: collectionView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute , multiplier: 1, constant: 200)
+        
+        var x:Int = (indexPath.row%9)/3
+        var y:Int = (indexPath.row%9)%3
+        
+        if itemNum < 10 {
+            x = (indexPath.row%9)%3
+            y = (indexPath.row%9)/3
+        }
         let batchNum:Int = indexPath.row/9
+        
         
         let superFrame = collectionView.frame;
         let innerMargin:CGFloat = 5.0
@@ -73,8 +87,11 @@ class MainViewTableCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return (1+itemNum/9)*9
+        if itemNum < 10 {
+            return itemNum
+        } else {
+            return (1+itemNum/9)*9
+        }
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
