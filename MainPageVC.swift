@@ -70,7 +70,6 @@ class MainPageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 //        let height = n*itemWidth+(n-1)*margin+2
         let height = 200
         
-        
         var whiteRoundedCornerView:UIView!
         whiteRoundedCornerView=UIView(frame: CGRectMake(0,0,self.view.bounds.width,300+20))
         whiteRoundedCornerView.backgroundColor=UIColor(red: 236/255.0, green: 236/255.0, blue: 236/255.0, alpha: 1.0)

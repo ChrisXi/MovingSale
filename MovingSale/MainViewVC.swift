@@ -15,8 +15,15 @@ class MainViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+//        tableView.estimatedRowHeight = 680.0
+//        tableView.rowHeight = UITableViewAutomaticDimension
     }
 
+    override func viewDidLayoutSubviews() {
+        print(tableView.frame.size.width)
+    
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -33,8 +40,17 @@ class MainViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         return 5
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 600
-    }
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        
+////        let cell = tableView.dequeueReusableCellWithIdentifier("TableCell", forIndexPath: indexPath) as! MainViewTableCell
+//        
+//
+////        cell.getHeight()
+//        let cell = tableView.dequeueReusableCellWithIdentifier("TableCell") as! MainViewTableCell
+//        cell.collectionView.reloadData()
+////        cell.getHeight()
+//        
+//        return 600
+//    }
     
 }

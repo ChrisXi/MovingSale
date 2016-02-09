@@ -12,6 +12,9 @@ class CollectionVC: UIViewController, UICollectionViewDataSource, UICollectionVi
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+   
+    @IBOutlet weak var height: NSLayoutConstraint!
+    @IBOutlet weak var leftGap: NSLayoutConstraint!
     var itemNum:Int = 20
     
     override func viewDidLoad() {
@@ -21,7 +24,32 @@ class CollectionVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
         collectionView.showsHorizontalScrollIndicator = false
+        
+        print(UIScreen.mainScreen().bounds.width)
     }
+    
+    override func viewDidLayoutSubviews() {
+        print(collectionView.frame.size.width)
+        print(collectionView.bounds.width)
+
+//        UIView.animateWithDuration(2.0) {
+//            self.height.constant = self.collectionView.frame.width
+//            self.view.layoutIfNeeded()
+//        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        print("ddddd")
+    }
+    
+//    override func viewDidAppear(animated: Bool) {
+//        super.viewDidAppear(animated)
+//        self.view.layoutIfNeeded()
+//        UIView.animateWithDuration(2.0) {
+//            self.height.constant = self.collectionView.frame.width
+//            self.view.layoutIfNeeded()
+//        }
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -30,7 +58,7 @@ class CollectionVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionViewCell
-        
+
         let x:Int = (indexPath.row%9)/3
         let y:Int = (indexPath.row%9)%3
         let batchNum:Int = indexPath.row/9

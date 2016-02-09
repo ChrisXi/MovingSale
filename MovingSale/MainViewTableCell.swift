@@ -33,8 +33,10 @@ class MainViewTableCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
         collectionView.showsHorizontalScrollIndicator = false
         
+        print(labelPostInfo.frame.width)
+//                print(collectionView.frame.size.width)
     }
-
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -53,7 +55,7 @@ class MainViewTableCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         let sideMargin:CGFloat = 10.0
         let topMargin:CGFloat = 10.0
         let itemLen:CGFloat = (superFrame.width - 2*sideMargin - 2*innerMargin)/3
-        
+
         let itemX = CGFloat(batchNum)*superFrame.width+sideMargin+(itemLen+innerMargin)*CGFloat(x)
         let itemY = topMargin+(itemLen+innerMargin)*CGFloat(y)
         
@@ -82,7 +84,7 @@ class MainViewTableCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         let sideMargin:CGFloat = 10.0
         let itemLen:CGFloat = (superFrame.width - 2*sideMargin - 2*innerMargin)/3
         
-        return CGSize(width: itemLen, height: itemLen);
+        return CGSize(width: itemLen, height: itemLen)
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
@@ -113,6 +115,11 @@ class MainViewTableCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
+    }
+    
+    
+    func getHeight() {
+        print(collectionView.frame.width)
     }
     
 
