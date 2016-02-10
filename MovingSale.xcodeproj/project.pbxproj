@@ -11,6 +11,7 @@
 		AF380FBD1C571D1400998DCA /* PostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF380FBC1C571D1400998DCA /* PostViewCell.swift */; };
 		AF380FC51C582CDC00998DCA /* CommodityViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF380FC41C582CDC00998DCA /* CommodityViewCell.swift */; };
 		AF380FC91C582E0700998DCA /* MainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF380FC81C582E0700998DCA /* MainPageVC.swift */; };
+		AF415BD61C6B22D30054AC17 /* MainViewCellFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF415BD51C6B22D30054AC17 /* MainViewCellFrame.swift */; };
 		AF794C121C63D3AA004A6B9D /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF794C111C63D3AA004A6B9D /* CollectionVC.swift */; };
 		AF794C141C63D56D004A6B9D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF794C131C63D56D004A6B9D /* CollectionViewCell.swift */; };
 		AFB36DD41C61DADD00F7CCFD /* MainViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB36DD31C61DADD00F7CCFD /* MainViewTableCell.swift */; };
@@ -46,6 +47,7 @@
 		AF380FBC1C571D1400998DCA /* PostViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostViewCell.swift; path = ../PostViewCell.swift; sourceTree = "<group>"; };
 		AF380FC41C582CDC00998DCA /* CommodityViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommodityViewCell.swift; sourceTree = "<group>"; };
 		AF380FC81C582E0700998DCA /* MainPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainPageVC.swift; path = ../MainPageVC.swift; sourceTree = "<group>"; };
+		AF415BD51C6B22D30054AC17 /* MainViewCellFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewCellFrame.swift; sourceTree = "<group>"; };
 		AF794C111C63D3AA004A6B9D /* CollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
 		AF794C131C63D56D004A6B9D /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		AFB36DD31C61DADD00F7CCFD /* MainViewTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewTableCell.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		AF380FCD1C5E63CD00998DCA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AF415BD51C6B22D30054AC17 /* MainViewCellFrame.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			files = (
 				AFB36DD61C61DBE500F7CCFD /* MainViewVC.swift in Sources */,
 				AF380FBD1C571D1400998DCA /* PostViewCell.swift in Sources */,
+				AF415BD61C6B22D30054AC17 /* MainViewCellFrame.swift in Sources */,
 				AF794C141C63D56D004A6B9D /* CollectionViewCell.swift in Sources */,
 				AF794C121C63D3AA004A6B9D /* CollectionVC.swift in Sources */,
 				AF380FC91C582E0700998DCA /* MainPageVC.swift in Sources */,

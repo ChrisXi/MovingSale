@@ -15,7 +15,7 @@ class MainViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        tableView.estimatedRowHeight = 680.0
+        tableView.estimatedRowHeight = 600.0
         tableView.rowHeight = UITableViewAutomaticDimension
     }
 

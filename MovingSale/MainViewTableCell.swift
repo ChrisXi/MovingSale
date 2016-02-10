@@ -37,7 +37,8 @@ class MainViewTableCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         height = NSLayoutConstraint(item: collectionView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute , multiplier: 1, constant: 200)
         collectionView.addConstraint(height)
         
-        let height2: NSLayoutConstraint = NSLayoutConstraint(item: labelPostInfo, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute , multiplier: 1, constant: 30)
+        print(labelPostInfo.frame.height)
+        let height2: NSLayoutConstraint = NSLayoutConstraint(item: labelPostInfo, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute , multiplier: 1, constant: 100)
         labelPostInfo.addConstraint(height2)
         print(labelPostInfo.frame.width)
 //                print(collectionView.frame.size.width)
@@ -51,8 +52,6 @@ class MainViewTableCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ItemCell", forIndexPath: indexPath) as! ItemViewCollectionCell
-        
-//        height = NSLayoutConstraint(item: collectionView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute , multiplier: 1, constant: 200)
         
         var x:Int = (indexPath.row%9)/3
         var y:Int = (indexPath.row%9)%3
@@ -132,11 +131,6 @@ class MainViewTableCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
-    }
-    
-    
-    func getHeight() {
-        print(collectionView.frame.width)
     }
     
 
