@@ -11,6 +11,9 @@ import UIKit
 class MainViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    let itemsNum:[Int] = [1,3,4,8,12]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,23 +35,20 @@ class MainViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        
         let cell = tableView.dequeueReusableCellWithIdentifier("TableCell", forIndexPath: indexPath) as! MainViewTableCell
-        
+        print("asdf")
+        cell.getItemNum(itemsNum[indexPath.row])
+        cell.initContent()
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return itemsNum.count
     }
     
+    
 //    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        
-////        let cell = tableView.dequeueReusableCellWithIdentifier("TableCell", forIndexPath: indexPath) as! MainViewTableCell
-//        
 //
-////        cell.getHeight()
 //        let cell = tableView.dequeueReusableCellWithIdentifier("TableCell") as! MainViewTableCell
-//        cell.collectionView.reloadData()
-////        cell.getHeight()
 //        
 //        return 600
 //    }

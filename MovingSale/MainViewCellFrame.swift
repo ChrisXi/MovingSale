@@ -20,8 +20,10 @@ class MainViewCellFrame {
         
         if itemNum > 6 {
             return superFrameWidth - 2*sideMarginItemCell
+        } else if itemNum == 0 {
+            return 0.0
         } else {
-            let row:Int = itemNum/3+1
+            let row:Int = (itemNum-1)/3+1
             let itemLen:CGFloat = getItemCellLen(superFrameWidth)
             let height:CGFloat = topMarginItemCell+CGFloat(row)*itemLen+(CGFloat(row)-1)*innerMarginItemCell+bottomMarginItemCell
 
@@ -55,10 +57,7 @@ class MainViewCellFrame {
         return itemLen
     }
     
-    func heightForLabelInfo(text:String, font:UIFont, superFrameWidth:CGFloat, defaultHeight: CGFloat) -> (CGFloat, Bool){
-        
-//        let font = UIFont(name: "Helvetica", size: 20.0)
-//        var height = heightForLabelInfo("This is just a load of text", font: font, superFrameWidth: 100.0)
+    func heightForLabelInfo(text:String, font:UIFont, superFrameWidth:CGFloat, defaultHeight: CGFloat) -> CGFloat{
         
         let width:CGFloat = superFrameWidth - 2*sideMarginItemCell
         let label:UILabel = UILabel(frame: CGRectMake(0, 0, width, CGFloat.max))
@@ -70,9 +69,8 @@ class MainViewCellFrame {
         label.sizeToFit()
         
         let height:CGFloat = defaultHeight<label.frame.height ? defaultHeight:label.frame.height
-        let enableFitSize: Bool = defaultHeight<label.frame.height ? true:false
         
-        return (height, enableFitSize)
+        return height
     }
     
     

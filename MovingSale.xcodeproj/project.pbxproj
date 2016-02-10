@@ -12,11 +12,11 @@
 		AF380FC51C582CDC00998DCA /* CommodityViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF380FC41C582CDC00998DCA /* CommodityViewCell.swift */; };
 		AF380FC91C582E0700998DCA /* MainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF380FC81C582E0700998DCA /* MainPageVC.swift */; };
 		AF415BD61C6B22D30054AC17 /* MainViewCellFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF415BD51C6B22D30054AC17 /* MainViewCellFrame.swift */; };
+		AF415BD71C6B2D5A0054AC17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCAEA791C55BDB8002B1CB9 /* AppDelegate.swift */; };
 		AF794C121C63D3AA004A6B9D /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF794C111C63D3AA004A6B9D /* CollectionVC.swift */; };
 		AF794C141C63D56D004A6B9D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF794C131C63D56D004A6B9D /* CollectionViewCell.swift */; };
 		AFB36DD41C61DADD00F7CCFD /* MainViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB36DD31C61DADD00F7CCFD /* MainViewTableCell.swift */; };
 		AFB36DD61C61DBE500F7CCFD /* MainViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB36DD51C61DBE500F7CCFD /* MainViewVC.swift */; };
-		AFCAEA7A1C55BDB8002B1CB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCAEA791C55BDB8002B1CB9 /* AppDelegate.swift */; };
 		AFCAEA7C1C55BDB8002B1CB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCAEA7B1C55BDB8002B1CB9 /* ViewController.swift */; };
 		AFCAEA7F1C55BDB8002B1CB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFCAEA7D1C55BDB8002B1CB9 /* Main.storyboard */; };
 		AFCAEA811C55BDB8002B1CB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFCAEA801C55BDB8002B1CB9 /* Assets.xcassets */; };
@@ -318,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF415BD71C6B2D5A0054AC17 /* AppDelegate.swift in Sources */,
 				AFB36DD61C61DBE500F7CCFD /* MainViewVC.swift in Sources */,
 				AF380FBD1C571D1400998DCA /* PostViewCell.swift in Sources */,
 				AF415BD61C6B22D30054AC17 /* MainViewCellFrame.swift in Sources */,
@@ -328,7 +329,6 @@
 				AFB36DD41C61DADD00F7CCFD /* MainViewTableCell.swift in Sources */,
 				AFCAEA7C1C55BDB8002B1CB9 /* ViewController.swift in Sources */,
 				AF380FC51C582CDC00998DCA /* CommodityViewCell.swift in Sources */,
-				AFCAEA7A1C55BDB8002B1CB9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

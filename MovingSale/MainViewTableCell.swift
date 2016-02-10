@@ -10,38 +10,60 @@ import UIKit
 
 class MainViewTableCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
     
-    @IBOutlet weak var height: NSLayoutConstraint!
+    let UIFrame = MainViewCellFrame()
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var labelUserName: UILabel!
     @IBOutlet weak var labelPostTime: UILabel!
     @IBOutlet weak var labelPostInfo: UILabel!
     
-    var itemNum:Int = 5
+    var itemNum:Int = 9
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    func initContent() {
 //      HelveticaNeue-UltraLight, Chalkduster, Georgia, Georgia-Italic, AmericanTypewriter-Bold
+        print("asdf\(self.itemNum)")
+        
+        
         labelUserName.font = UIFont(name: "Georgia-Italic", size: 30)
         labelPostTime.font = UIFont(name: "Georgia-Italic", size: 10)
         labelPostInfo.font = UIFont(name: "Georgia-Italic", size: 12)
         
-//        labelPostInfo.textAlignment = NSTextAlignment.Left
-//        labelPostInfo.adjustsFontSizeToFitWidth = true
+        var strPostInfo: String = "Johnson had season highs with 27 points and 11 assists in Brooklyn's 128-119 victory on Friday night. The Nets set season bests for points and 3-pointers while snapping a five-game losing streak. Dwyane Wade scored 22 points and Chris Bosh added 20 points for the Heat, who have won six of seven. Goran Dragic had 12 points, nine assists and eight rebounds.Johnson had season highs with 27 points and 11 assists in Brooklyn's 128-119 victory on Friday night. The Nets set season bests for points and 3-pointers while snapping a five-game losing streak. Dwyane Wade scored 22 points and Chris Bosh added 20 points for the Heat, who have won six of seven. Goran Dragic had 12 points, nine assists and eight rebounds."
+        if self.itemNum > 8 {
+            strPostInfo = "The Nets set season bests for points and 3-pointers while snapping a five-game losing streak."
+        }
+        
+        var labelPostInfoHeight:CGFloat = 100.0
+        
+        labelPostInfoHeight = UIFrame.heightForLabelInfo(strPostInfo, font: labelPostInfo.font, superFrameWidth: UIScreen.mainScreen().bounds.width, defaultHeight: labelPostInfoHeight)
+        
+        labelPostInfo.textAlignment = NSTextAlignment.Left
         labelPostInfo.numberOfLines = 0
-        labelPostInfo.text = "Johnson had season highs with 27 points and 11 assists in Brooklyn's 128-119 victory on Friday night. The Nets set season bests for points and 3-pointers while snapping a five-game losing streak. Dwyane Wade scored 22 points and Chris Bosh added 20 points for the Heat, who have won six of seven. Goran Dragic had 12 points, nine assists and eight rebounds.Johnson had season highs with 27 points and 11 assists in Brooklyn's 128-119 victory on Friday night. The Nets set season bests for points and 3-pointers while snapping a five-game losing streak. Dwyane Wade scored 22 points and Chris Bosh added 20 points for the Heat, who have won six of seven. Goran Dragic had 12 points, nine assists and eight rebounds."
+        labelPostInfo.text = strPostInfo
+        
+        let labelPostInfoHeightCostraint: NSLayoutConstraint = NSLayoutConstraint(item: labelPostInfo, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute , multiplier: 1, constant: labelPostInfoHeight)
+        labelPostInfo.addConstraint(labelPostInfoHeightCostraint)
+        
+        
         let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
         collectionView.showsHorizontalScrollIndicator = false
-
-        height = NSLayoutConstraint(item: collectionView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute , multiplier: 1, constant: 200)
-        collectionView.addConstraint(height)
         
-        print(labelPostInfo.frame.height)
-        let height2: NSLayoutConstraint = NSLayoutConstraint(item: labelPostInfo, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute , multiplier: 1, constant: 100)
-        labelPostInfo.addConstraint(height2)
-        print(labelPostInfo.frame.width)
-//                print(collectionView.frame.size.width)
+        let itemsViewHeight:CGFloat = UIFrame.getItemsViewHeight(UIScreen.mainScreen().bounds.width, itemNum: itemNum)
+
+        let itemsViewHeightCostraint: NSLayoutConstraint = NSLayoutConstraint(item: collectionView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute , multiplier: 1, constant: itemsViewHeight)
+        
+//        collectionView.addConstraint(itemsViewHeightCostraint)
+//        collectionView.updateConstraints()
+        /**/
+        NSLayoutConstraint.activateConstraints([itemsViewHeightCostraint])
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+//        initContent()
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -133,5 +155,8 @@ class MainViewTableCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         return image
     }
     
-
+    func getItemNum(itemNum:Int) {
+        self.itemNum = itemNum
+//        print(self.itemNum)
+    }
 }
