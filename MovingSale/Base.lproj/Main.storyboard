@@ -244,7 +244,7 @@
                                                     </variation>
                                                 </stackView>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iuD-iF-Z57">
-                                                    <rect key="frame" x="10" y="84.5" width="580" height="405.5"/>
+                                                    <rect key="frame" x="10" y="84" width="580" height="400"/>
                                                     <color key="backgroundColor" red="0.4039215686" green="0.69019607839999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="iuD-iF-Z57" secondAttribute="height" multiplier="1:1" id="8KC-9w-eEH"/>
@@ -310,6 +310,7 @@
                                                 <constraint firstItem="nIy-wR-1Pz" firstAttribute="top" secondItem="rA6-ht-lYy" secondAttribute="bottom" constant="2" id="3dt-Tt-JAL"/>
                                                 <constraint firstItem="6yo-GK-Ga8" firstAttribute="top" secondItem="IGO-W8-lle" secondAttribute="top" constant="5" id="5AH-7I-occ"/>
                                                 <constraint firstItem="iuD-iF-Z57" firstAttribute="leading" secondItem="IGO-W8-lle" secondAttribute="leading" constant="10" id="FTs-9b-3y4"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="iuD-iF-Z57" secondAttribute="bottom" constant="1" id="Hvb-Hh-2Ig"/>
                                                 <constraint firstItem="6yo-GK-Ga8" firstAttribute="leading" secondItem="64I-EP-fgd" secondAttribute="trailing" constant="2" id="Nbi-iZ-a7U"/>
                                                 <constraint firstItem="nIy-wR-1Pz" firstAttribute="leading" secondItem="IGO-W8-lle" secondAttribute="leading" constant="10" id="O1F-7B-hEd"/>
                                                 <constraint firstAttribute="trailing" secondItem="nIy-wR-1Pz" secondAttribute="trailing" constant="10" id="Pe2-DF-hYY"/>
@@ -324,6 +325,7 @@
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="jxI-IN-CBu"/>
+                                                    <exclude reference="kFX-jh-ZP2"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>

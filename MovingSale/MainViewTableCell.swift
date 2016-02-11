@@ -22,7 +22,7 @@ class MainViewTableCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     
     func initContent() {
 //      HelveticaNeue-UltraLight, Chalkduster, Georgia, Georgia-Italic, AmericanTypewriter-Bold
-        print("asdf\(self.itemNum)")
+//        print("asdf\(self.itemNum)")
         
         
         labelUserName.font = UIFont(name: "Georgia-Italic", size: 30)
@@ -39,11 +39,15 @@ class MainViewTableCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         labelPostInfoHeight = UIFrame.heightForLabelInfo(strPostInfo, font: labelPostInfo.font, superFrameWidth: UIScreen.mainScreen().bounds.width, defaultHeight: labelPostInfoHeight)
         
         labelPostInfo.textAlignment = NSTextAlignment.Left
-        labelPostInfo.numberOfLines = 0
+        labelPostInfo.numberOfLines = 10
+        
         labelPostInfo.text = strPostInfo
         
         let labelPostInfoHeightCostraint: NSLayoutConstraint = NSLayoutConstraint(item: labelPostInfo, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute , multiplier: 1, constant: labelPostInfoHeight)
-        labelPostInfo.addConstraint(labelPostInfoHeightCostraint)
+//        labelPostInfo.addConstraint(labelPostInfoHeightCostraint)
+//        NSLayoutConstraint.activateConstraints([labelPostInfoHeightCostraint])
+//        print(labelPostInfo.constraints)
+//        labelPostInfo.removeConstraint(labelPostInfoHeightCostraint)
         
         
         let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -57,13 +61,13 @@ class MainViewTableCell: UITableViewCell, UICollectionViewDataSource, UICollecti
 //        collectionView.addConstraint(itemsViewHeightCostraint)
 //        collectionView.updateConstraints()
         /**/
-        NSLayoutConstraint.activateConstraints([itemsViewHeightCostraint])
+//        NSLayoutConstraint.activateConstraints([itemsViewHeightCostraint])
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-//        initContent()
+        //initContent()
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

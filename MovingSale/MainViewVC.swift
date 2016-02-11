@@ -12,7 +12,7 @@ class MainViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let itemsNum:[Int] = [1,3,4,8,12]
+    let itemsNum:[Int] = [9,3,4,8,12,8,1,3,5,6,8,1]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +33,8 @@ class MainViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-       
+
         let cell = tableView.dequeueReusableCellWithIdentifier("TableCell", forIndexPath: indexPath) as! MainViewTableCell
-        print("asdf")
         cell.getItemNum(itemsNum[indexPath.row])
         cell.initContent()
         return cell
@@ -44,6 +43,7 @@ class MainViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemsNum.count
     }
+    
     
     
 //    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
